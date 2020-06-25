@@ -4,6 +4,7 @@ import {
 } from "merge-graphql-schemas";
 import path from "path";
 import * as user from "./user/index";
+import * as trainee from './trainee/index';
 
 const typesArray = fileLoader(path.join(__dirname, "./**/*.graphql"));
 
@@ -15,7 +16,11 @@ export default {
   resolvers: {
     Query: {
       ...user.Query,
+      ...trainee.query
     },
+    Mutation: {
+      ...trainee.mutation,
+    }
   },
   typeDefs,
 };

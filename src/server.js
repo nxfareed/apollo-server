@@ -6,8 +6,7 @@ import bodyParser from "body-parser";
 import {
   ApolloServer
 } from "apollo-server-express";
-
-const graphqlHTTP = require("express-graphql");
+import graphqlHTTP from "express-graphql";
 
 class Server {
   constructor(config) {
