@@ -1,4 +1,4 @@
-import userInstance from "../../service/user";
+import userInstance from '../../service/user';
 
 export default {
   getAllTrainees: () => {
