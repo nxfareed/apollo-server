@@ -4,6 +4,12 @@ type Query {
   getTrainee(id: ID!): User!
 }
 
+type Subscription {
+  traineeAdded: User!
+  traineeUpdated: User!
+  traineeDeleted: ID!
+}
+
 type Mutation {
   updateTrainee(user: UpdateUserInput): User!
   createTrainee(user: CreateUserInput): User!
