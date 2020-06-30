@@ -1,0 +1,7 @@
+export default {
+  subscriptions: {
+    TRAINEE_ADDED: 'TRAINEE_ADDED',
+    TRAINEE_DELETED: 'TRAINEE_DELETED',
+    TRAINEE_UPDATED: 'TRAINEE_UPDATED'
+  }
+};

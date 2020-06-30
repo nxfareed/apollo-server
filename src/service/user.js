@@ -3,16 +3,13 @@ class User {
     this.users = new Map();
     this.id = 0;
   }
-
   getAllUser() {
-    let mapToArray = Array.from(this.users.values());
+    const mapToArray = Array.from(this.users.values());
     return mapToArray;
   }
-
   getUser(id) {
     return this.users.get(Number(id));
   }
-
   createUser(user) {
     this.id += 1;
     this.users.set(this.id, {
@@ -21,7 +18,6 @@ class User {
     });
     return this.users.get(this.id);
   }
-
   updateUser(data) {
     const {
       id,
@@ -34,10 +30,9 @@ class User {
     });
     return this.users.get(Number(id));
   }
-
   deleteUser(id) {
     this.users.delete(Number(id));
-    return this.id;
+    return id;
   }
 }
 
