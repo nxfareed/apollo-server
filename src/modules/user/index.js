@@ -1,4 +1,7 @@
+import Query from './query';
+import mutation from './mutation';
+
 export {
-  default as Query
-}
-from './query';
+  mutation,
+  Query
+};
