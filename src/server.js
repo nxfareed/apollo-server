@@ -7,7 +7,8 @@ import {
   createServer
 } from 'http';
 import {
-  UserApi
+  UserApi,
+  TraineeApi
 } from './dataSource';
 
 class Server {
@@ -65,7 +66,18 @@ class Server {
       ...schema,
       dataSources: () => ({
         userApi: new UserApi(),
-      })
+        traineeApi: new TraineeApi(),
+      }),
+      context: ({
+        req
+      }) => {
+        if (req) {
+          return {
+            token: req.headers.authorization
+          };
+        }
+        return {};
+      },
     });
     this.server.applyMiddleware({
       app
