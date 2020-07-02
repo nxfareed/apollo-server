@@ -6,6 +6,10 @@ import {
 import {
   createServer
 } from 'http';
+import {
+  UserApi,
+  TraineeApi
+} from './dataSource';
 
 class Server {
   constructor(config) {
@@ -59,7 +63,21 @@ class Server {
       app
     } = this;
     this.server = new ApolloServer({
-      ...schema
+      ...schema,
+      dataSources: () => ({
+        userApi: new UserApi(),
+        traineeApi: new TraineeApi(),
+      }),
+      context: ({
+        req
+      }) => {
+        if (req) {
+          return {
+            token: req.headers.authorization
+          };
+        }
+        return {};
+      },
     });
     this.server.applyMiddleware({
       app
