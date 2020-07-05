@@ -16,6 +16,11 @@ input getUserData {
   limit: Int
 }
 
+type getData {
+  records: [User]
+  count: Int
+}
+
 type CreateUserOutput {
   name: String!
   email: String!

@@ -4,18 +4,12 @@ import {
 
 export default {
   getTrainee: async (parent, args, context) => {
-    try {
-      const {
-        dataSources: {
-          traineeApi
-        },
-      } = context;
-      const response = await traineeApi.getTrainee(args);
-      return response.data.records;
-    } catch (error) {
-      return new UserInputError('Arguments are invalid', {
-        invalidArgs: Object.keys(args),
-      });
-    }
-  }
+    const {
+      dataSources: {
+        traineeApi
+      },
+    } = context;
+    const response = await traineeApi.getTrainee(args);
+    return response.data;
+  },
 };
