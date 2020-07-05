@@ -3,4 +3,11 @@ type User {
   role: String
   name: String!
   email: String!
+  password: String!
+  originalId: ID
+}
+
+input InputCredentials {
+  email: String!
+  password: String!
 }
